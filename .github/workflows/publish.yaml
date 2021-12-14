@@ -24,6 +24,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ghcr.io/abahmed/test
+          labels: |
+            org.opencontainers.image.description: hello-hello
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
