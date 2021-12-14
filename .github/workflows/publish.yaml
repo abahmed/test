@@ -26,7 +26,7 @@ jobs:
           images: ghcr.io/abahmed/test
           labels: |
             org.opencontainers.image.title=test
-            org.opencontainers.image.description=Another description
+            org.opencontainers.image.description=https://github.com/abahmed/test/blob/$commit/README.md
             org.opencontainers.image.source = "https://github.com/abahmed/test"
 
       - name: Build and push Docker image
