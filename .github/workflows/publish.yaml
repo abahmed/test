@@ -27,6 +27,7 @@ jobs:
           labels: |
             org.opencontainers.image.title=test
             org.opencontainers.image.description=Another description
+            org.opencontainers.image.source = "https://github.com/abahmed/test"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
