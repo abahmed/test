@@ -24,9 +24,6 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ghcr.io/abahmed/test
-          labels: |
-            org.opencontainers.image.title=test
-            org.opencontainers.image.description=https://github.com/abahmed/test/blob/${{tag}}/README.md
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
