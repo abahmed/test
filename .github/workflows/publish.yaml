@@ -35,7 +35,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-<<<<<<< HEAD
           build-args: RELEASE_VERSION=${{ steps.meta.outputs.tags }}
-=======
->>>>>>> fc1d092ea30a70fea316c2b8406cb503c9cd39b1
