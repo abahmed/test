@@ -23,7 +23,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: abahmed/test
+          images: ghcr.io/abahmed/test
+          labels: |
+            org.opencontainers.image.title=test
+            org.opencontainers.image.description=https://github.com/abahmed/test/blob/${{tag}}/README.md
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
@@ -32,4 +35,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+<<<<<<< HEAD
           build-args: RELEASE_VERSION=${{ steps.meta.outputs.tags }}
+=======
+>>>>>>> fc1d092ea30a70fea316c2b8406cb503c9cd39b1

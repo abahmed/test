@@ -20,4 +20,5 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a --installsuffix cgo --ldfl
 FROM alpine:latest
 RUN apk add --update ca-certificates
 COPY --from=builder /build/test /bin/test
+RUN echo "test" > README.md
 ENTRYPOINT ["/bin/test"]
