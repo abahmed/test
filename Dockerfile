@@ -1,4 +1,7 @@
 FROM golang:alpine AS builder
+
+ARG RELEASE_VERSION="nothing"
+
 LABEL maintainer="Abdelrahman Ahmed <a.ahmed1026@gmail.com"
 
 RUN apk update && \
@@ -9,7 +12,8 @@ RUN apk update && \
 WORKDIR /build
 COPY go.mod go.sum /build/
 RUN go mod download
-
+RUN echo ${RELEASE_VERSION} > version
+RUN cat version
 COPY . /build/
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a --installsuffix cgo --ldflags="-s"
 
