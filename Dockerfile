@@ -15,6 +15,9 @@ RUN go mod download
 RUN echo ${RELEASE_VERSION} > version
 RUN cat version
 COPY . /build/
+RUN cat version.txt
+RUN sed -i 's/dev/'"${RELEASE_VERSION}"'/g' version.txt
+RUN cat version.txt
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a --installsuffix cgo --ldflags="-s"
 
 FROM alpine:latest
